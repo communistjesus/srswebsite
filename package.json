@@ -7,7 +7,7 @@
     "styles": "pnpm exec tailwindcss --watch -i ./styles/style.css -o ./static/out.css",
     "styles-build": "pnpm exec tailwindcss -i ./styles/style.css -o ./static/out.css",
     "gen-events": "mkdir -p events/${BRANCH:-national} && python3 scripts/generate_source_events.py ${BRANCH:-national}",
-    "zsrv": "zola --config branch-zola-configs/\"local.${BRANCH:-national}.zola.toml\" serve --interface 0.0.0.0",
+    "zsrv": "zola --config branch-zola-configs/\"local.${BRANCH:-national}.zola.toml\" serve --interface 0.0.0.0 --base-url /",
     "symlink-articles": "mkdir -p static/perspectives && mkdir -p static/events && ./scripts/symlink",
     "set-worker-var": "printenv \"$GITHUB_VARNAME\" | npx wrangler secret put \"$APP_VARNAME\" --config branch-wrangler-configs/\"$BRANCH\".wrangler.toml",
     "set-vars": "GITHUB_VARNAME=APP_PRIVATE_KEY APP_VARNAME=GITHUB_APP_PRIVATE_KEY npm run set-worker-var && GITHUB_VARNAME=TURNSTILE_SECRET_KEY APP_VARNAME=TURNSTILE_SECRET_KEY npm run set-worker-var && GITHUB_VARNAME=DISCORD_BOT_TOKEN APP_VARNAME=DISCORD_BOT_TOKEN npm run set-worker-var",

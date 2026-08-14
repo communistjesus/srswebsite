@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <form id="template-form">
+        <div class="border-b border-gray-900/10 pb-12 center-text">
+
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-6 max-w-full flex align-center flex-col itemsx-center">
+                    <label for="title" class="block">Title</label>
+                    <div class="w-full max-w-xs">
+                        <input value="Fist Fight with Monarchists" required id="title" type="text" name="title"
+                            class="max-w-full block rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6 max-w-full">
+                    <label for="image" class="block">Image Link</label>
+                    <div class="w-full max-w-xs">
+                        <input
+                            value="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Hammer_and_sickle_red_on_transparent.svg/960px-Hammer_and_sickle_red_on_transparent.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+                            required id="image" type="text" name="image"
+                            class="max-w-full block rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6 max-w-full">
+                    <label for="image_alt" class="block">Image Alt (be accessible to the blind)</label>
+                    <div class="w-full max-w-xs">
+                        <input value="Red sickle hammer" required id="image_alt" type="text" name="image_alt"
+                            class="max-w-full block rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6 max-w-full">
+                    <label for="Location" class="block">Location</label>
+                    <div class="w-full max-w-xs">
+                        <input value="Beach" id="location" type="text" name="location"
+                            class="max-w-full block  rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    </div>
+                </div>
+                <div class="sm:col-span-6 max-w-full">
+                    <label for="Date" class="block">Date</label>
+                    <div class="w-full max-w-xs">
+                        <input value="at Dawn" id="date" type="text" name="date"
+                            class="max-w-full block  rounded-md bg-white px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <style>
+        @media print {
+
+            button,
+            .preview,
+            #template-form,
+            footer,
+            nav {
+                display: none
+            }
+
+            .sheet {
+                display: block;
+                width: 8.5in;
+                height: 11in;
+            }
+
+            .box {
+                width: 8.5in;
+                height: 5.5in;
+                overflow: hidden;
+                border-bottom: 1px solid;
+            }
+
+            .rotated {
+                width: 5.5in;
+                height: 8.5in;
+                transform-origin: top left;
+                transform: translateY(5.5in) rotate(-90deg);
+            }
+
+
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        button {
+            margin: 20px
+        }
+
+        .preview {
+            width: 5.5in;
+            height: 8.5in;
+            margin: auto;
+            color: black;
+        }
+
+        .sheet {
+            display: none
+        }
+
+        .flyer-image {
+            display: block;
+            margin: 0 auto;
+            height: 1.5in;
+        }
+
+        @page {
+            size: 8.5in 11in;
+            margin: 0
+        }
+
+        .blurb {
+            border: 5px solid black;
+            margin: 1.5rem;
+            padding: .5rem;
+        }
+    </style>
+
+    <button onclick="print()">Export Printable PDF</button>
+
+    <div class="preview"></div>
+
+    <div class="sheet">
+        <div class="box">
+            <div class="rotated"></div>
+        </div>
+        <div class="box">
+            <div class="rotated"></div>
+        </div>
+    </div>
+
+    <template>
+        <div style="background: white;">
+            <h3 style="color: white; background-color: var(--primary-bg-color);" class="text-center">TUESDAY AUGUST 4th
+                at 7PM</h3>
+            <h3 class="text-center">WHY THE SRS IS A</h3>
+            <img height="1in" class="flyer-image"
+                src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Eagle_of_Saladin_blank.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original"
+                alt="">
+            <div class="blurb">
+                <div>To overthrow capitalism, one thing is certain: we need to organize. We at the Seattle Revolutionary
+                    Socialists have chosen to organize ourselves as a Marxist education and political action group that
+                    follows the political tradition of, among others, Vladimir Lenin and the Bolshevik party he led.
+                </div>
+                <div>What are the reasons that modern revolutionaries should look to this 20th century figure and hisn
+                    poltical philosophy? Join us on July the 28th as we explore the theoretical and actionable premises
+                    of a
+                    Leninist approach to fighting for a better world.</div>
+
+            </div>
+            <!-- <div style="background-color: var(--primary-bg-color)">
+                <h5 class="text-center">SEATTLE REVOLUTIONARY SOCIALISTS</h5>
+                <div class="flex" style="border: 3px solid black; padding: 0 1rem; margin: .5rem;">
+                    <div class="w-1/5 text-wrap break-words">
+                        <div>MARX</div>
+                        <div class="text-wrap">SEATTLEREVOLUTIONARYSOCIALISTS.ORG</div>
+                    </div>
+                    <div class="w-4/5">
+                        <div>Meetings held online and in-person at the same time, most Tuesdays at 7 PM! We rent space
+                            at:</div>
+                        <div style="margin: .5rem 0; padding: .5rem;">
+                            <div>Christ Episcopal Church (North Entrance)</div>
+                            <div>4548 Brooklyn Ave NE</div>
+                            <div>Seattle, WA 98105</div>
+                            <div>Zoom link: bit.ly/srszoomlink</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; height: .5rem; background-color: var(--primary-bg-color)"></div> -->
+
+        </div>
+    </template>
+
+    <script>
+        const content = document.querySelector("template").innerHTML;
+
+        document.querySelector(".preview").innerHTML = content;
+        document.querySelectorAll(".rotated").forEach(x => x.innerHTML = content);
+    </script>
+
+</main>
+
+
+{% endblock content %}
